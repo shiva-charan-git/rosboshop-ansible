@@ -18,22 +18,22 @@
      state: latest
      disable_gpg_check: yes
     
-- name: Ebaleing & Install Redis
-  ansible:builtin.dnf:
-     name: '@redis:remi-6.2'
-     state: installed
+# - name: Ebaleing & Install Redis
+#   ansible:builtin.dnf:
+#      name: '@redis:remi-6.2'
+#      state: installed
 
-- name: update redis listen address
-  ansible.builtin.replace:
-     path:  /etc/redis.conf
-     regexp: '127.0.0.1'
-     replace: '0.0.0.0'
+# - name: update redis listen address
+#   ansible.builtin.replace:
+#      path:  /etc/redis.conf
+#      regexp: '127.0.0.1'
+#      replace: '0.0.0.0'
 
-- name: Enable and Restart the redis
-  ansible.builtin.systemd:
-     name: redis
-     state: started
-     enabled: true
+# - name: Enable and Restart the redis
+#   ansible.builtin.systemd:
+#      name: redis
+#      state: started
+#      enabled: true
 
 
 
