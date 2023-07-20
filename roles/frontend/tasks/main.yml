@@ -3,10 +3,10 @@
     name: nginx
     state: installed
 
-- name: Remove the old content
-   ansible.builtin.file:
-     path: /usr/share/nginx/html/
-     state: absent 
+- name: Recursively remove directory
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/
+    state: absent
 
 # - name: createing app dir
 #   ansible.builtin.file:
