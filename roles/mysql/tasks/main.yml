@@ -1,3 +1,57 @@
-- name: print mysql
-  debug:
-    msg: mysql
+# source common.sh
+
+# mysql_root_password=$1
+
+# if [ -z "${1}" ]; then
+#   echo -e "\e[31mMissing MySql Root passowrd argument\e[om"
+#   exit 1
+# fi
+
+# print_head "disabling mysql 8 version"
+# dnf module disable mysql -y  &>>${log_file}
+# status_check $?
+
+# print_head "copy mysql repo file"
+# cp ${code_dir}/configs/mysql.repo /etc/yum.repos.d/mysql.repo &>>${log_file}
+# status_check $?
+
+# print_head "installing MySQL server"
+# yum install mysql-community-server -y &>>${log_file}
+# status_check $?
+
+# print_head "enabling MySQL service"
+# systemctl enable mysqld &>>${log_file}
+# status_check $?
+
+# print_head "start MySQL service"
+# systemctl start mysqld   &>>${log_file}
+# status_check $?
+
+# print_head "Set Root Password"
+# echo show database | mysql -uroot -p${mysql_root_password}  &>>${log_file}
+# if [ $? -ne 0 ] ; then
+#  mysql_secure_installation --set-root-pass ${mysql_root_password} &>>${log_file}
+# fi
+# status_check $?
+
+- name: Setup MySql Repos
+  ansible.builtin.copy:
+    src: mysql.repo
+    dest: /etc/yum.repos.d/mysql.repo
+
+- name: Disable Mysql 8
+  ansible.builtin.shell: dnf module disable mysql -y
+
+- name: Install MySql 5.7
+  ansible.builtin.yum:
+    name: mysql-community-server
+    state: installed
+
+- name: Start MySql service
+  ansible.builtin.systemd:
+    name: mysqld
+    state: started
+    enabled: true
+
+- name: Set Root Password
+  ansible.builtin.shell: mysql_secure_installation --set-root-pass RoboShop@1
