@@ -29,11 +29,11 @@
      regexp: '127.0.0.1'
      replace: '0.0.0.0'
 
-# - name: Enable and Restart the redis
-#   ansible.builtin.systemd:
-#      name: redis
-#      state: started
-#      enabled: true
+- name: Enable and Restart the redis
+  ansible.builtin.systemd:
+     name: redis
+     state: started
+     enabled: true
 
 
 
