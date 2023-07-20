@@ -29,7 +29,7 @@
 
 - name: Install nginx
   ansible.builtin.yum:
-    name: nginx
+    name: mongodb-org
     state: installed
 
 
