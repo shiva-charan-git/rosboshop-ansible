@@ -22,6 +22,11 @@
 #     state: started
 #     enable: yes
 
+- name: Install nginx
+  ansible.builtin.yum:
+    name: mongodb-org
+    state: installed
+
 - name: Copy mongodb repo  file
   ansible.builtin.copy:
     src: mongodb.repo
