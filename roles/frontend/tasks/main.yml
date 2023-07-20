@@ -5,8 +5,8 @@
 
 - name: Remove the old content
    ansible.builtin.file:
-    path: /usr/share/nginx/html/
-    state: absent 
+     path: /usr/share/nginx/html/
+     state: absent 
 
 # - name: createing app dir
 #   ansible.builtin.file:
