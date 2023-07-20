@@ -27,10 +27,10 @@
     src: mongodb.repo
     dest: /etc/yum.repos.d/mongodb.repo
 
-- name: Install mongodb
+- name: Install nginx
   ansible.builtin.yum:
-    name: mongodb-org
-    state: latest
+    name: nginx
+    state: installed
 
 
 - name: update mongodb listen address
