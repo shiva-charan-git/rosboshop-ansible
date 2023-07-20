@@ -8,10 +8,10 @@
     path: /usr/share/nginx/html/
     state: absent
 
-# - name: createing app dir
-#   ansible.builtin.file:
-#     path: /usr/share/nginx/html/
-#     state: directory
+- name: createing app dir
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/
+    state: directory
 
 # - name: download and unzip the frotend
 #   ansible.builtin.unarchive:
