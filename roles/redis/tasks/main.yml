@@ -18,8 +18,8 @@
      state: latest
      disable_gpg_check: yes
     
-- name: Ebaleing & Install Redis
-  ansible:builtin.dnf:
+- name: Enableing & Install Redis
+  ansible.builtin.dnf:
      name: '@redis:remi-6.2'
      state: installed
 
