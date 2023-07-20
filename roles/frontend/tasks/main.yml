@@ -24,9 +24,9 @@
     src: roboshop.conf
     dest: /usr/share/nginx/html/
 
-# - name: Restart the Ngnix Service
-#   ansible.builtin.systemd:
-#    name: nginx
-#    state: restarted
-#    enabled: yes
+- name: Restart the Ngnix Service
+  ansible.builtin.systemd:
+   name: nginx
+   state: restarted
+   enabled: yes
   
