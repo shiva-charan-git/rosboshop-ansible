@@ -1,7 +1,7 @@
 - name: Setup Mongodb Repo
   ansible.builtin.copy:
     src: mongodb.repo
-    state: /etc/yum.repos.d/mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
     
 
 - name: Install mongodb
