@@ -44,7 +44,7 @@
 
 
 - name: MYSQL schema
-  when: schema_typ == "mysql"
+  when: schema_type == "mysql"
   block:
     - name: Install MySQL Client
       ansible.builtin.yum:
