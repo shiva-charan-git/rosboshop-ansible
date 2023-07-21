@@ -24,7 +24,7 @@
 # fi
 
 - name: MogoDB schema
-  when: schema_typ == "mongo"
+  when: schema_type == "mongo"
   block:
     - name: Copy MongoDB Repo File
       ansible.builtin.copy:
