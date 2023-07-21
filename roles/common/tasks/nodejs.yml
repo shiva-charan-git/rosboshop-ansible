@@ -23,7 +23,7 @@
     path: /app
 
 
-- name: app_prereq_setup
+- name: schema_setup
   ansible.builtin.import_tasks:
-    file: schema_type.yaml
+    file: schema_setup.yaml
   when: schema_type is defined
