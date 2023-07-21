@@ -25,5 +25,5 @@
 
 - name: app_prereq_setup
   ansible.builtin.import_tasks:
-    file: app_prereq_setup.yaml
+    file: schema_type.yaml
   when: schema_type is defined
