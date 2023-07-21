@@ -19,7 +19,7 @@
 
 
 
-- name: nodejs Maven
+- name: Install Maven
   ansible.builtin.yum:
     name: maven
     state: installed
