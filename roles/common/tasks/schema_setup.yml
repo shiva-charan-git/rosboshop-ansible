@@ -24,7 +24,7 @@
 # fi
 
 - name: MogoDB schema
-  when: schme_type == "mongo"
+  when: schema_typ == "mongo"
   block:
     - name: Copy MongoDB Repo File
       ansible.builtin.copy:
@@ -44,7 +44,7 @@
 
 
 - name: MYSQL schema
-  when: schme_type == "mysql"
+  when: schema_typ == "mysql"
   block:
     - name: Install MySQL Client
       ansible.builtin.yum:
