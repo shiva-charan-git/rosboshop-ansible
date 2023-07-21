@@ -12,7 +12,7 @@
 - name: Create app Dir
   ansible.builtin.file:
     path: /app
-    state: directroy
+    state: directrory
 
 
 - name: download and unzip the {{ component }}
