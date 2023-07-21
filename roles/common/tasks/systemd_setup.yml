@@ -16,7 +16,7 @@
 
 #  print_head "starting ${component} service"
 #  systemctl restart ${component}  &>>${log_file}
- status_check $?
+#  status_check $?
 
 
 
