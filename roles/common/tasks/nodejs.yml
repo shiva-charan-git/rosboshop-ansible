@@ -27,3 +27,7 @@
 #   ansible.builtin.import_tasks:
 #     file: schema_setup.yaml
 #   when: schema_type is defined
+
+- name: systemd-setup
+  ansible.builtin.import_tasks:
+    file: systemd_setup.yaml
