@@ -1,4 +1,11 @@
-- name: Python
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: python
+# - name: Python
+#   ansible.builtin.import_role:
+#     name: common
+#     tasks_from: python
+
+
+ 
+- name: Print payment
+  debug:
+     msg: payment
+

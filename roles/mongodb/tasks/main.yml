@@ -28,20 +28,26 @@
     src: mongodb.repo
     dest: /etc/yum.repos.d/mongodb.repo
 
-- name: Install mongodb
-  ansible.builtin.yum:
-    name: mongodb-org
-    state: installed
+# - name: Install mongodb
+#   ansible.builtin.yum:
+#     name: mongodb-org
+#     state: installed
 
 
-- name: update mongodb listen address
-  ansible.builtin.replace:
-    path: /etc/mongod.conf
-    regexp: '127.0.0.1'
-    replace: '0.0.0.0'
+# - name: update mongodb listen address
+#   ansible.builtin.replace:
+#     path: /etc/mongod.conf
+#     regexp: '127.0.0.1'
+#     replace: '0.0.0.0'
 
-- name: START mongodb service
-  ansible.builtin.systemd:
-    state: restarted
-    name: mongod
-    enabled: true
+# - name: START mongodb service
+#   ansible.builtin.systemd:
+#     state: restarted
+#     name: mongod
+#     enabled: true
+
+
+ 
+- name: Print mongodb
+  debug:
+     msg: mongodb
