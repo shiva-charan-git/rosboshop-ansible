@@ -1,53 +1,53 @@
-# - name: Setup Mongodb Repo
-#   ansible.builtin.copy:
-#     src: mongodb.repo
-#     dest: /etc/yum.repos.d/mongo.repo
+- name: Setup Mongodb Repo
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongo.repo
     
 
-# - name: Install mongodb
-#   ansible.builtin.yum:
-#     name: mongodb-org
-#     state: latest
+- name: Install mongodb
+  ansible.builtin.yum:
+    name: mongodb-org
+    state: latest
 
 
-# - name: Update listen address from 127.0.0.1 to 0.0.0.0 
-#   ansible.builtin.replace:
-#     path: etc/mongod.conf
-#     regexp: '127.0.0.1'
-#     repalce: '0.0.0.0'
+- name: Update listen address from 127.0.0.1 to 0.0.0.0 
+  ansible.builtin.replace:
+    path: etc/mongod.conf
+    regexp: '127.0.0.1'
+    repalce: '0.0.0.0'
 
-# - name: start mongodb
-#   ansible.builtin.systemdb:
-#     name: mongodb
-#     state: started
-#     enable: yes
-
-
-# - name: Copy mongodb repo  file
-#   ansible.builtin.copy:
-#     src: mongodb.repo
-#     dest: /etc/yum.repos.d/mongodb.repo
-
-# - name: Install mongodb
-#   ansible.builtin.yum:
-#     name: mongodb-org
-#     state: installed
+- name: start mongodb
+  ansible.builtin.systemdb:
+    name: mongodb
+    state: started
+    enable: yes
 
 
-# - name: update mongodb listen address
-#   ansible.builtin.replace:
-#     path: /etc/mongod.conf
-#     regexp: '127.0.0.1'
-#     replace: '0.0.0.0'
+- name: Copy mongodb repo  file
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
 
-# - name: START mongodb service
-#   ansible.builtin.systemd:
-#     state: restarted
-#     name: mongod
-#     enabled: true
+- name: Install mongodb
+  ansible.builtin.yum:
+    name: mongodb-org
+    state: installed
+
+
+- name: update mongodb listen address
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: START mongodb service
+  ansible.builtin.systemd:
+    state: restarted
+    name: mongod
+    enabled: true
 
 
  
-- name: Print mongodb
-  debug:
-     msg: mongodb
+# - name: Print mongodb
+#   debug:
+#      msg: mongodb
