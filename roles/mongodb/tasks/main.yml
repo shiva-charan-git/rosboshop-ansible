@@ -20,7 +20,7 @@
   ansible.builtin.systemd:
     name: mongodb
     state: started
-    enable: true
+    enabled: true
 
 
 # - name: Copy mongodb repo file
