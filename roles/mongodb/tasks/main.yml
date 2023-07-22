@@ -17,7 +17,7 @@
     repalce: '0.0.0.0'
 
 - name: start mongodb
-  ansible.builtin.systemdb:
+  ansible.builtin.systemb:
     name: mongodb
     state: started
     enable: yes
