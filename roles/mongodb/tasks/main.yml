@@ -23,10 +23,10 @@
 #     enable: yes
 
 
-- name: Copy mongodb repo  file
-  ansible.builtin.copy:
-    src: mongodb.repo
-    dest: /etc/yum.repos.d/mongodb.repo
+# - name: Copy mongodb repo  file
+#   ansible.builtin.copy:
+#     src: mongodb.repo
+#     dest: /etc/yum.repos.d/mongodb.repo
 
 # - name: Install mongodb
 #   ansible.builtin.yum:
