@@ -6,7 +6,7 @@
 
 - name: Install Nginx
   ansible.builtin.yum:
-    name: Nginx
+    name: nginx
     state: installed
 
 - name: Remove Old content
