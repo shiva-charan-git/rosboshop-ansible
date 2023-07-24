@@ -1,38 +1,8 @@
-- name: Install nginx
-  ansible.builtin.yum:
-    name: nginx
-    state: installed
 
-- name: Recursively remove directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html/
-    state: absent
-
-- name: createing app dir
-  ansible.builtin.file:
-    path: /usr/share/nginx/html/
-    state: directory
-
-- name: download and unzip the frotend
-  ansible.builtin.unarchive:
-    src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip 
-    dest: /usr/share/nginx/html/
-    remote_src: yes
-
-- name: Create Roboshop config i Nginx /usr/share/nginx/html/
-  ansible.builtin.copy:
-    src: roboshop.conf
-    dest: /etc/nginx/default.d/roboshop.conf
-
-- name: Restart the Ngnix Service
-  ansible.builtin.systemd:
-   name: nginx
-   state: restarted
-   enabled: yes
   
 
 
  
-# - name: Print frontend
-#   debug:
-#      msg: frontend
+- name: Print frontend
+  debug:
+     msg: frontend

@@ -1,43 +1,7 @@
 
 
-
-
-
-# print_head "enable redis"
-# systemctl enable redis &>>${log_file}
-# status_check $? 
-
-# print_head "starting redis"
-# systemctl restart redis  &>>${log_file}
-# status_check $?
-
-
-- name: Installing Redis Repos
-  ansible.builtin.yum:
-     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-     state: installed
-     disable_gpg_check: yes
-    
-- name: Enableing & Install Redis
-  ansible.builtin.dnf:
-     name: '@redis:remi-6.2'
-     state: installed
-
-- name: update redis listen address
-  ansible.builtin.replace:
-     path:  /etc/redis.conf
-     regexp: '127.0.0.1'
-     replace: '0.0.0.0'
-
-- name: Enable and Restart the redis
-  ansible.builtin.systemd:
-     name: redis
-     state: started
-     enabled: true
-
-
  
-# # - name: Print redis
-#   debug:
-#      msg: redis
+# - name: Print redis
+  debug:
+     msg: redis
 
