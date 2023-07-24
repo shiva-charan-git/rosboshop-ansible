@@ -1,6 +1,11 @@
-
-
  
-- name: Print mysql
-  debug:
-     msg: mysql
+# - name: Print mysql
+#   debug:
+#      msg: mysql
+
+
+- name: Setup MySql  Repo
+  ansible.builtin.copy:
+    src: mysql.repo
+    dest: /etc/yum.repos.d/mysql.repo
+ 
