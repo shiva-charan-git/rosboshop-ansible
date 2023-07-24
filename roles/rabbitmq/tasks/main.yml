@@ -16,4 +16,21 @@
       - rabbitmq-server
       - erlang
     state: installed  
+
+- name: start Rabitmq service
+  ansible.builtin.systemd:
+     name: rabbitmq-server
+     state: started
+     enabled: true
+
+
+- name: Add App user
+  community.rabbitmq.rabbitmq_user:
+     user: roboshop
+     password: roboshop123
+     vhost: /
+     configure_prive: .*
+     read_prive: .*
+     write_prive: .*
+     state: present
   
