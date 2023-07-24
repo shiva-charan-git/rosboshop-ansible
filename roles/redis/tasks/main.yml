@@ -1,7 +1,7 @@
 
 
  
-# - name: Print redis
+- name: Print redis
   debug:
      msg: redis
 
