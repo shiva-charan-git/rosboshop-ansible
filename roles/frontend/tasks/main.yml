@@ -22,7 +22,7 @@
 - name: Create Roboshop config i Nginx /usr/share/nginx/html/
   ansible.builtin.copy:
     src: roboshop.conf
-    dest: /usr/share/nginx/html/
+    dest: /etc/nginx/default.d/roboshop.conf
 
 - name: Restart the Ngnix Service
   ansible.builtin.systemd:
