@@ -9,12 +9,13 @@
   ansible.builtin.yum:
     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
     state: installed
+    disable_gpg_check: yes
 
 - name: Enable  & Install redis
   ansible.builtin.dnf:
     name: "@redis:remi-6.2"
     state: installed
-    disable_gpg_check: yes
+   
 
 
 - name: Update Redis Listen Address
