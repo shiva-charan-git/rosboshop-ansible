@@ -1,7 +1,19 @@
 
+# - name: Print rabbitmq
+#   debug:
+#      msg: rabbitmq
 
 
- 
-- name: Print rabbitmq
-  debug:
-     msg: rabbitmq
+- name: Setup erlang Repo
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+
+- name: Install Rabitmq Repos
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
+
+- name: Install Erlang and Rabitmq
+  ansible.builtin.yum:
+    name:
+      - rabbitmq-server
+      - erlang
+    state: installed  
+  
