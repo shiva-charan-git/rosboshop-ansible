@@ -24,7 +24,7 @@
 - name: schema_setup
   ansible.builtin.import_tasks:
     file: schema_setup.yml
-  when: schema_type is defind
+  when: schema_type is defined
 
 
 - name: systemd-setup
