@@ -1,0 +1,21 @@
+- name: Create APP user
+  ansible.builtin.user:
+    name: roboshop
+
+- name: Delete old App Directory
+  ansible.builtin.file:
+    path: /app
+    bstate: absent
+
+- name: Delete old App Directory
+  ansible.builtin.file:
+    path: /app
+    bstate: directory
+
+
+
+- name: download and Ertract {{component}} content 
+  ansible.builtin.unarchive:
+    src: https://roboshop-artifacts.s3.amazonaws.com/{{component}}.zip
+    dest: /app
+    remote_src: yes
