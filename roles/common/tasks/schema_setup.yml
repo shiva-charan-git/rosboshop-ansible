@@ -2,30 +2,30 @@
 - name: Mongodb schema_schema
   when: schema_type == "mongo"
   block:
-    - name: Setup mongodb repo file
-      ansible.builtin.copy:
-        src: mongodb.repo
-        dest: /etc/systemd/system/mongodb.repo
+      - name: Setup mongodb repo file
+        ansible.builtin.copy:
+          src: mongodb.repo
+          dest: /etc/systemd/system/mongodb.repo
 
-    - name: Install Mongodb Clinet
-      ansible.builtin.yum:
-        name: mongodb-org-shell
-        state: installed
+      - name: Install Mongodb Clinet
+        ansible.builtin.yum:
+          name: mongodb-org-shell
+          state: installed
 
-    - name: Load schema
-      ansible.builtin.shell: mongo --host mongodb-dev.devsig90.online </app/schema/{{component}}.js
+      - name: Load schema
+        ansible.builtin.shell: mongo --host mongodb-dev.devsig90.online </app/schema/{{component}}.js
 
 
 
 - name: Mysql schema
   when: schema_type == "mysql"
   block:
-    - name: Install Mysql Clinet 
-      ansible.builtin.yum:
-        name: mysql
-        state: installed
+      - name: Install Mysql Clinet 
+        ansible.builtin.yum:
+          name: mysql
+          state: installed
 
-    
-    
-    - name: Load schema
-      ansible.builtin.shell: mysql -h mysql-dev.devsig90.online -uroot -pRoboShop@1 < /app/schema/{{component}}.sql
+      
+      
+      - name: Load schema
+        ansible.builtin.shell: mysql -h mysql-dev.devsig90.online -uroot -pRoboShop@1 < /app/schema/{{component}}.sql
