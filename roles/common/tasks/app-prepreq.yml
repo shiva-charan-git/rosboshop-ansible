@@ -10,7 +10,7 @@
 - name: Delete old App Directory
   ansible.builtin.file:
     path: /app
-    bstate: directory
+    state: directory
 
 
 
