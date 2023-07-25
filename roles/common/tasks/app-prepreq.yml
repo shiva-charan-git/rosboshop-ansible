@@ -13,11 +13,13 @@
     state: directory
 
 
-- name: download and Extract {{component}} content
+
+- name: download and unzip the {{component}}
   ansible.builtin.unarchive:
-    src: https://roboshop-artifacts.s3.amazonaws.com/{{component}}.zip
+    src: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}.zip 
     dest: /app
-    remote_src: true
+    remote_src: yes
+
 
 
 
