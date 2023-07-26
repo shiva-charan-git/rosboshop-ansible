@@ -22,7 +22,7 @@
 
 - name: app_prereq_setup
   ansible.builtin.import_tasks:
-    file: app_prereq_setup.yml
+    file: app-prepreq.yml
 
 
 - name: Install python Dependency
@@ -37,5 +37,5 @@
 
 - name: systemd-setup
   ansible.builtin.import_tasks:
-    file: systemd_setup.yml
+    file: systemd-setup.yml
 
