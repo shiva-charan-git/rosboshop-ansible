@@ -24,10 +24,13 @@
           src: mongodb.repo
           dest: /etc/systemd/system/mongodb.repo
       
-      - name: Install
+      - name: Install mongodb
         ansible.builtin.yum:
           name: mongodb-org-shell
           state: installed
+      
+      - name: Load schema
+        ansible.builtin.shell: mongo --host mongodb-dev.devsig90.online </app/schema/{{component}}.js
 
 
 
