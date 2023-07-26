@@ -26,9 +26,9 @@
       
       - name: Install
         ansible.builtin.yum:
-        name: mongodb-org-shell
-        state: installed
-        
+          name: mongodb-org-shell
+          state: installed
+
 
 
 - name: Mysql schema
