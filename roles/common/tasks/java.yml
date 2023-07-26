@@ -3,7 +3,7 @@
   # yum install maven -y  &>>${log_file}
   # status_check $?
   
-  # app_prereq_setup
+  # app-prepreq.yml
   
   # print_head "download dependency & packages"
   # mvn clean package   &>>${log_file}
@@ -24,9 +24,9 @@
     name: maven
     state: installed
 
-- name: app_prereq_setup
+- name: app-prepreq 
   ansible.builtin.import_tasks:
-    file: app_prereq_setup.yml
+    file: app-prepreq.yml.yml
 
 
 - name: Install Maven Dependency
