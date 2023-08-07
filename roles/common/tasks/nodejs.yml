@@ -17,7 +17,7 @@
     file: app-prepreq.yml
 
 - name: Install Nodejs Dependency
-  ansible.builtin.npm:
+  community.general.npm:
     path: /app
 
 
