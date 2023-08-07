@@ -17,16 +17,16 @@
 
 
 - name: Mongodb Schema
-  when: schema_type == 'mongo'
+  when: schema_type == "mongo"
   block: 
       - name: setup mongodb repo
         ansible.builtin.copy:
           src: mongodb.repo
           dest: /etc/systemd/system/mongodb.repo
       
-      - name: Install mongodb
+      - name: Install mongodb Clinet
         ansible.builtin.yum:
-          name: mongodb-org-shell -y  
+          name: mongodb-org-shell
           state: installed
       
       - name: Load schema
